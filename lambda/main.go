@@ -131,7 +131,7 @@ func changeWeatherName(Weather *Weather) int {
 		if Weather.Info == key {
 			Weather.Info = value
 
-			if key == "Rain" {
+			if key == "Rain" || key == "Drizzle" || key == "Thunderstorm" || key == "Snow" {
 				hasUmbrella++
 			}
 		}
