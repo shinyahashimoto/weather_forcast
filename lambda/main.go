@@ -58,12 +58,13 @@ func postLineMessage() {
 }
 
 func getWeatherForcast() *Forcast {
+	API_KEY = os.Getenv("API_FORCAST_KEY")
 	//緯度
 	const LATITUDE = "35.465786"
 	//経度
 	const LONGITUDE = "139.622313"
 	base_url := "https://api.openweathermap.org/data/2.5/onecall"
-	url := fmt.Sprintf("%s?lat=%s&lon=%s&exclude=current&units=metric&lang=ja&appid=%s", base_url, LATITUDE, LONGITUDE, os.Getenv("API_FORCAST_KEY"))
+	url := fmt.Sprintf("%s?lat=%s&lon=%s&exclude=current&units=metric&lang=ja&appid=%s", base_url, LATITUDE, LONGITUDE, API_KEY)
 
 	req, _ := http.NewRequest("GET", url, nil)
 	res, _ := http.DefaultClient.Do(req)
